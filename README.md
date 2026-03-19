@@ -43,6 +43,21 @@ Same total budget. Weights carry forward across stages — no resets. The only d
 
 ---
 
+## Setup
+
+| Setting | Value |
+|---------|-------|
+| Algorithm | PPO (Stable-Baselines3 v2.7.1) |
+| Policy | MlpPolicy |
+| Environment | MiniGrid (minigrid v3.0.0) |
+| Observation | 7×7 egocentric partial view → flattened 147-dim vector |
+| Training | Zero curriculum vs staged curriculum |
+| Hardware | Google Colab T4 GPU |
+| Framework | PyTorch 2.10.0 + CUDA |
+| Total Timesteps | 500,000 (both experiments) |
+| Parallel Envs | 4 (DummyVecEnv) |
+| Input format | FlatObsWrapper → MlpPolicy |
+
 ## Environments
 
 Four custom MiniGrid environments. All use **fixed layouts** — identical object positions every episode. This is intentional: fixed layouts let us test whether agents learn the *task* or memorize a *specific path*.
